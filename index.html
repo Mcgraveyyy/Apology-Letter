@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Apology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#0d0d0d;
+font-family:'Cormorant Garamond',serif;
+color:#f3e8c8;
+overflow-x:hidden;
+}
+
+/* Background */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at center,
+rgba(255,255,255,.05),
+transparent 70%);
+pointer-events:none;
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2rem;
+opacity:.8;
+}
+
+/* Envelope */
+
+.envelope-wrapper{
+display:flex;
+justify-content:center;
+margin:50px 0;
+}
+
+.envelope{
+position:relative;
+width:320px;
+height:220px;
+cursor:pointer;
+transition:.5s;
+}
+
+.envelope-body{
+position:absolute;
+width:100%;
+height:100%;
+background:#4a3427;
+border-radius:5px;
+}
+
+.flap{
+position:absolute;
+width:100%;
+height:100%;
+background:#6d4c3d;
+clip-path:polygon(0 0,100% 0,50% 50%);
+transform-origin:top;
+transition:1s;
+z-index:2;
+}
+
+.envelope.open .flap{
+transform:rotateX(180deg);
+}
+
+.letter-peek{
+position:absolute;
+width:90%;
+height:180px;
+background:#d6c3a0;
+left:5%;
+top:20px;
+border-radius:5px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.3rem;
+color:#333;
+transition:1s;
+}
+
+.envelope.open .letter-peek{
+transform:translateY(-120px);
+}
+
+/* Book */
+
+.book-container{
+display:none;
+justify-content:center;
+padding:40px 20px;
+perspective:2000px;
+}
+
+.book{
+width:100%;
+max-width:900px;
+height:auto;
+display:flex;
+transform-style:preserve-3d;
+}
+
+.page{
+width:50%;
+background:#d9c7a4;
+color:#2b1d0f;
+padding:40px;
+min-height:500px;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.left-page{
+transform-origin:right;
+animation:openBook 1.5s forwards;
+}
+
+@keyframes openBook{
+from{
+transform:rotateY(-180deg);
+}
+to{
+transform:rotateY(0deg);
+}
+}
+
+.paper-title{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-bottom:20px;
+text-align:center;
+}
+
+/* Gallery */
+
+.gallery-section{
+padding:80px 20px;
+text-align:center;
+}
+
+.gallery-title{
+font-size:3rem;
+margin-bottom:30px;
+font-family:'Dancing Script',cursive;
+}
+
+.slider{
+max-width:900px;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+}
+
+.slides{
+display:flex;
+transition:.5s;
+}
+
+.slides img{
+width:100%;
+flex-shrink:0;
+height:800px;
+object-fit:cover;
+}
+
+/* Controls */
+
+.controls{
+margin-top:15px;
+}
+
+.controls button{
+padding:10px 20px;
+margin:5px;
+border:none;
+background:#8b6a4f;
+color:white;
+cursor:pointer;
+border-radius:8px;
+}
+
+/* Music */
+
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+z-index:1000;
+padding:12px 20px;
+border:none;
+background:#8b6a4f;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.book{
+flex-direction:column;
+}
+
+.page{
+width:100%;
+}
+
+.slides img{
+height:350px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" autoplay loop>
+<source src="nothing_bruno_major.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+🔊 Music
+</button>
+
+<section class="hero">
+<h1>I'm Sorry</h1>
+<p>Tap the envelope to read.<br>Please tap the music button to play, mute, and unmute.<br>!Please wear ear buds before playing the music!</p>
+</section>
+
+<div class="envelope-wrapper">
+<div class="envelope" id="envelope">
+<div class="flap"></div>
+<div class="envelope-body"></div>
+
+<div class="letter-peek">
+🥲❤️My Apology Letter❤️🥲
+</div>
+</div>
+</div>
+
+<div class="book-container" id="bookContainer">
+
+<div class="book">
+
+<div class="page left-page">
+<h2 class="paper-title">To You</h2>
+
+<p style="text-align: justify;">
+
+My Love,
+
+I'm writing this to you, waitlang basi ako ga english HAHAHAHA😂😂😂,
+anyway ginasulat ko ini saimo just in case makita mo, pero doubt 
+koda makita mo ining repent. list ko nalang ang dates na sinulat ko ini.
+btw dont be angry sinulat ko ini kay i drank enough to reflect in my actions.
+<br>
+<br>
+<br>
+<b>Im really sorry.</b>
+<br>
+<b>I hope you can forgive me</b>
+</p>
+</div>
+
+<div class="page">
+
+<h2 class="paper-title">Our Story</h2>
+
+<p style="text-align: justify;">
+
+<b>(06/07/2026)</b> This is the time na dapat type ko ang mga sulatin ko ang mga gawain ko para di ko makalimutan at para, parang reflection you know HAHAHAHA,
+🥲🥲 yawa na mimiss kona ang sweet time naton, natandaan mo ba adtong nag pamasyar kita gamit motor ng lolo mo, that time pa naghuyat gid 
+ako saimo na excited gid magpamasyar kita kay rarely lang gid eh HAHAHHAA first time ko ma experience ang tiyadto na anticipation kag kilig 
+gid, waya ka gid kasayod kung paano gid ako ka excited, diba nagtabi ka saakon that night da, pila gid ako ka hours bati dahil di ako katuyog.
+I know ka cowardice da na gina patanda ko ini saimo pero ginahambay ko lang kasi na kahit man nakuwa ng ex ko ang first times ko sa inappropriate 
+stuff, ikaw lang ang iisang nakakuwa ng puso ko, apg mamahal ko, at ang mga magandang pagsasamahan natin. Hinde man appropriate ang pagsabi ko lang
+na sorry dito pero in the past few months i cried everytime na natatandaan ko ikaw, kahit man lumalaro ako, umiinom, at kahit man lutang lang ako.
+I can never forget the one I loved and deared the most my whole life, im sorry though na sinusulat ko ito ng kakatapos alng namin inom ni kuya, ian,
+at ako eh. Im really sorry about the past I've done kung gusto mo maging higpit ka sakin go I don't mind at all, gusto mo ba hawak mo account ko no problem rin,
+pero please what I'm asking is have your trust in me again for who I truly gave my first true love is you. HAHAHAHA medyo na gatanggal pagkabayong ko well....
+bukon da gida ako bayong gusto ko lang mag release ng emotion ng gatipon lang gid sa luob ko
+<br>
+<br>
+<b>(06/12/2026)</b> This is the time na ginahimo ko ini and website kay gusto ko talaga mag restart kita, pero I,m not assuming ha! basi kung mahangit ka bigla hehehe
+gusto ko lang busa hambayon na sa buong relasyon ko na realise ko lang na waya gida gale ako nagtao enough effort, I hope there is still something inside you
+na ma forgive mo pa ako. Please I still love you so much.
+</p>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<section class="gallery-section">
+
+<h2 class="gallery-title">Our Memories</h2>
+
+<div class="slider">
+
+<div class="slides" id="slides">
+
+<img src="686156.jpg">
+<img src="686157.jpg">
+<img src="686158.jpg">
+<img src="686159.jpg">
+
+</div>
+
+</div>
+
+<div class="controls">
+<button onclick="prevSlide()">◀</button>
+<button onclick="nextSlide()">▶</button>
+</div>
+
+</section>
+
+<script>
+
+/* Envelope */
+
+const envelope = document.getElementById("envelope");
+const bookContainer = document.getElementById("bookContainer");
+
+envelope.addEventListener("click",()=>{
+
+envelope.classList.add("open");
+
+setTimeout(()=>{
+bookContainer.style.display="flex";
+
+bookContainer.scrollIntoView({
+behavior:"smooth"
+});
+},1200);
+
+});
+
+/* Gallery */
+
+let current = 0;
+
+const slides = document.getElementById("slides");
+
+const total =
+slides.children.length;
+
+function updateSlide(){
+
+slides.style.transform =
+`translateX(-${current * 100}%)`;
+
+}
+
+function nextSlide(){
+
+current++;
+
+if(current >= total){
+current = 0;
+}
+
+updateSlide();
+
+}
+
+function prevSlide(){
+
+current--;
+
+if(current < 0){
+current = total - 1;
+}
+
+updateSlide();
+
+}
+
+/* Swipe Support */
+
+let startX = 0;
+
+slides.addEventListener(
+"touchstart",
+e=>{
+startX = e.touches[0].clientX;
+}
+);
+
+slides.addEventListener(
+"touchend",
+e=>{
+
+let endX =
+e.changedTouches[0].clientX;
+
+if(startX - endX > 50){
+nextSlide();
+}
+
+if(endX - startX > 50){
+prevSlide();
+}
+
+}
+);
+
+/* Music */
+
+const music =
+document.getElementById("bgMusic");
+
+const musicBtn =
+document.querySelector(".music-btn");
+
+function toggleMusic(){
+
+if(music.paused){
+
+music.play();
+
+musicBtn.innerHTML =
+"🔊 Music";
+
+}else{
+
+music.pause();
+
+musicBtn.innerHTML =
+"🔇 Muted";
+
+}
+
+}
+
+/* Autoplay gallery */
+
+setInterval(()=>{
+nextSlide();
+},5000);
+
+</script>
+
+</body>
+</html>
